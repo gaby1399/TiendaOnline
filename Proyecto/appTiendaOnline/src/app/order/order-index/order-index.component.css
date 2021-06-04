@@ -1,0 +1,21 @@
+a {
+  background-color: #228cbd;
+}
+
+a:hover {
+  background-color: #228cbd;
+}
+.card-title {
+  color: white;
+  background-color: #228cbd;
+  margin: 3%;
+  text-align: center;
+  padding: 3%;
+}
+
+.btn {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 36%;
+  margin-right: 36%;
+}

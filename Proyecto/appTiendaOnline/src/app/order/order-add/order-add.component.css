@@ -1,0 +1,28 @@
+.row {
+  color: white;
+}
+.col {
+  margin-top: 2%;
+}
+.center {
+  width: 20%;
+}
+#total {
+  width: 10%;
+}
+
+.table {
+  margin-top: 2.5%;
+  background-color: white;
+  color: black;
+  margin: 0;
+}
+
+h4 {
+  margin: 2%;
+}
+.table-bordered {
+  background-color: white;
+  color: black;
+  margin: 0;
+}

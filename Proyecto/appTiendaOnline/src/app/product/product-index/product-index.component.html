@@ -1,0 +1,19 @@
+<div class="container-fluid" margen>
+  <div class="row my-2">
+    <div class="col-md-3 my-3" *ngFor="let item of datos">
+      <!-- Información -->
+      <div class="card border-info mb-3" id="products">
+       <img src="{{item.image}}" alt="Imagen" class="img-thumbnail" />
+        <div class="card-body" >
+          <h3 class="card-title">{{item.description}}</h3>
+          <h5 class="card-text">Cantidad disponible: {{item.quantity}}</h5>
+          <h4 class="card-text">{{item.price | currency:'CR'}}</h4>
+
+         <div class="row"> <a class="btn btn-info col-5" [routerLink]="['/product/',item.id]" routerLinkActive="active">Ver más <i class="fas fa-angle-double-right"></i></a>
+           <div class="col-7"  style="float: right;"> <button class="btn btn-info "  style="float: right;" (click)="agregarProduct(item.id)" ><i class="fas fa-shopping-basket"></i></button></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

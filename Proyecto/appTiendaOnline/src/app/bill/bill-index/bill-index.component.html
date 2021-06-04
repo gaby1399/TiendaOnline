@@ -1,0 +1,62 @@
+<div class="container-fluid" margen>
+  <div class="row my-2">
+    <div class="col-md-4 my-4" *ngFor="let item of datos">
+      <!-- Información -->
+      <div class="card border-info mb-4">
+        <h2 class="card-title">Factura {{item.id}}</h2>
+        <div class="card-body">
+          <h6 class="card-text" style="text-align: center;">Número de Orden: {{item.order_id}}</h6>
+                    <input type="hidden"  [value]="item.order_id"/>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">Cedula</th>
+                <td>{{item.user_id}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row"  >Nombre</th>
+                <td>{{item.user.name}}</td>
+              </tr>
+              <tr>
+                <th scope="row" >Dirección</th>
+                <td>{{item.user.address}}</td>
+              </tr>
+              <tr>
+                <td colspan="2"> <!-- <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let detail of order">
+                      <td>{{detail.product.description}}</td>
+                      <td>{{detail.quantity}}</td>
+                      <td>{{detail.price | currency:'CR'}}</td>
+                    </tr>
+                  </tbody>
+                </table>-->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" >Personal de Entregas</th>
+                <td>{{item.driver.name}}</td>
+              </tr>
+              <tr>
+                <th scope="row" >Identificación</th>
+                <td>{{item.driver_id}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 class="card-text" style="text-align: center;">Total: {{item.total | currency:'CR'}}</h5>
+        <div style="float: right;">
+          <h5><input type="checkbox" class="form-check-input" value="item.status" (change)="onCheckChange(item.id,$event)" />Finalizado</h5>
+       </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

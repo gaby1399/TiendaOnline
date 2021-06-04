@@ -1,0 +1,27 @@
+#main{
+  color: white;
+  background-color: rgba(8, 0, 85, 0.288);
+    backdrop-filter: blur(5px);
+  border-radius: 10px;
+  margin-right: 8vw;
+  margin-left: 8vw;
+  margin-top: 2vw;
+  padding: 1vw;
+  align-content: center;
+}
+#main h4{
+  font-weight: bold;
+}
+#main label{
+  font-size: 17px;
+}
+#main input{
+  border-radius: 5px;
+  border: none;
+  font-size: 17px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}

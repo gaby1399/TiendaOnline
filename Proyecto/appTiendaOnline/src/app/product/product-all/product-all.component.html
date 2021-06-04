@@ -1,0 +1,39 @@
+<div class="row justify-content-center margen" id="products">
+  <div class="col-md-10">
+    <h4 class="mb-3">Lista de Productos</h4>
+    <button type="button" class="btn btn-primary btn-sm" (click)="create()">
+      <i class="fas fa-plus"></i>
+    </button><br /><br />
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Clasificación</th>
+          <th scope="col">Categorias</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let item of datos">
+          <td>{{item.description}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.price | currency:'CR'}}</td>
+          <td>{{item.classification.description}}</td>
+          <td><ul>
+            <li *ngFor="let categ of item.categories">
+              {{categ.description}}
+            </li>
+          </ul></td>
+          <td ><p *ngIf="item.state==1">Activo</p><p *ngIf="item.state==0">Inactivo</p></td>
+          <td>
+            <button type="button" class="btn btn-primary btn-sm" (click)="update(item.id)">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

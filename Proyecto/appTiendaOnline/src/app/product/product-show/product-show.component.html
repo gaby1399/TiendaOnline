@@ -1,0 +1,38 @@
+<div class="container margen">
+  <div class="row my-4">
+    <div class="col" *ngIf="datos?.id">
+      <div class="row no-gutters overflow-hidden flex-md-row mb-6">
+        <div class="col p-4 d-flex flex-column position-static">
+          <img src="{{datos.image}}" id="foto"/></div>
+        <div class="col p-4 d-flex flex-column position-static">
+
+          <h2 id="titulo" class="mb-0 text">{{datos.description}}</h2>
+
+          <div class=" mb-1 text">
+          <b>Cantidad:
+          </b> {{ datos.quantity}}
+          <hr>
+        </div>
+
+        <div class="card-text">
+          <b>Categoria: </b>
+          <ul>
+            <li *ngFor="let item of datos.categories">
+              {{item.description}}
+            </li>
+            </ul>
+          <b>Clasificación: </b>
+          <ul>
+            <li>
+              {{datos.classification.description}}
+            </li>
+          </ul>
+          <hr>
+           <h4>{{ datos.price | currency: 'CR'}}</h4>
+        </div>
+        <a id="but" class="btn btn-info" [routerLink]="[]" routerLinkActive="active">Comprar</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

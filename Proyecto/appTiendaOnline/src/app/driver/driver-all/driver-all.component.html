@@ -1,0 +1,51 @@
+<div class="row justify-content-center margen">
+  <div class="col-md-10">
+    <h4 class="mb-3">Lista de Personal de entregas</h4>
+    <ng-template #loading>
+      <img
+        class="img-fluid rounded mx-auto d-block"
+        src="../../../assets/gif/loading.gif"
+        alt="Cargando..."
+        style="width: 300px"
+      />
+    </ng-template>
+    <ng-template [ngIf]="datos" [ngIfElse]="loading">
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        (click)="crearDriver()"
+      >
+        <i class="fas fa-plus"></i></button
+      ><br /><br />
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datos">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.phone }}</td>
+            <td><h5><input type="checkbox" class="form-check-input" [checked]="item.status"
+                (change)="onCheckChange(item.id,$event)" />Activo</h5></td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                (click)="updateDriver(item.id)"
+              >
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </div>
+</div>

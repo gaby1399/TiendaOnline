@@ -1,0 +1,142 @@
+<div class="row justify-content-center margen">
+  <div class="col-md-10">
+    <div class="col">
+      <p class="card-text">Fecha: {{ date | date: "dd/MM/yyyy" }}</p>
+      <p class="card-text">Hora: {{ time | date: "hh:mm" }}</p>
+    </div>
+    <h4 class="mb-3">Productos de preferencia</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th class="right">Precio</th>
+          <th class="center">Cantidad</th>
+          <th class="right">SubTotal</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="group" style="cursor: pointer" *ngFor="let item of items">
+          <td>
+            <p>{{ item.product.description }}</p>
+          </td>
+          <td class="right">
+            <p>₡{{ item.price }}</p>
+          </td>
+          <td class="center">
+            <input
+              id="cantidad "
+              type="number"
+              class="form-control"
+              (change)="actualizarCantidad(item)"
+              [(ngModel)]="item.quantity"
+            />
+          </td>
+
+          <td class="right">
+            <p>{{ item.subtotal }}</p>
+          </td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="eliminarItem(item)">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row clearfix d-flex justify-content-end">
+      <div class="col-md-4">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="left">
+                <strong>Tipo Envio</strong>
+              </td>
+              <td class="right">
+                <div class="input-group mb-2">
+                  <select
+                    class="form-control"
+                    id="combo"
+                    [(ngModel)]="delivery"
+                    (change)="selectDelivery()"
+                  >
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let deli of deliveryList" [value]="deli.id">
+                      {{ deli.description }}
+                    </option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr *ngIf="verdelivery == 1">
+              <td class="left">
+                <strong>Costo Envio</strong>
+              </td>
+              <td class="right">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">₡</div>
+                  </div>
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    id="envio"
+                    type="text"
+                    [value]="deliverycost"
+                  />
+                </div>
+              </td>
+            </tr>
+             <tr>
+              <td class="left">
+                <strong>Impuesto</strong>
+              </td>
+              <td class="right">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">₡</div>
+                  </div>
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    id="iv"
+                    type="text"
+                    [value]="iv"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="left">
+                <strong>Total</strong>
+              </td>
+              <td class="right">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">₡</div>
+                  </div>
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    id="total"
+                    type="text"
+                    [value]="total"
+                  />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="col">
+          <button class="btn btn-info mb-2 float-right" (click)="ordenar()">
+            Ordenar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

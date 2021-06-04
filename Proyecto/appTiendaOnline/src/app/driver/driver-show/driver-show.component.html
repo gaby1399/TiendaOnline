@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div id="nombre" class="col-md-4" *ngIf="datos?.id" >
+    <h2>{{datos.name}}</h2>
+    <h2>Cédula: {{datos.id}}</h2>
+    <h4>Teléfono: {{datos.phone}}</h4>
+</div>
+    <div id="trans" class="col-md-4">
+      <h3>Vehiculo:</h3>
+      <hr/>
+      <h5>Placa: {{datos.transport_id}}</h5>
+      <h5>Model: {{datos.transport.model}}</h5>
+      <h5>Marca: {{datos.transport.brand}}</h5>
+      <h5>Tipo: {{datos.transport.vehicletype.type}}</h5>
+    </div>
+  </div>
+</div>

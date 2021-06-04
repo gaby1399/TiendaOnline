@@ -1,0 +1,84 @@
+
+<div class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="formCreate" (ngSubmit)="submitForm()" novalidate><!--Error-->
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Cedula" formControlName="id" />
+        <div class="col-sm-4">
+          <small *ngIf="errorHandling('id', 'required')" class="text-danger">
+            La cedula es requerido
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nombre" formControlName="name" />
+        <div class="col-sm-4">
+          <small *ngIf="errorHandling('name', 'required')" class="text-danger">
+            El nombre de usuario es requerido
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Alias usuario" formControlName="nameUser" />
+        <div class="col-sm-4">
+          <small *ngIf="errorHandling('nameUser', 'required')" class="text-danger">
+            El alias de usuario es requerido
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="email" formControlName="email" />
+        <div class="col-sm-4">
+          <small *ngIf="errorHandling('email', 'required')" class="text-danger">
+            El email es requerido
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password" />
+        <div class="col-sm-4">
+          <small *ngIf="errorHandling('password', 'required')" class="text-danger">
+            El password es requerido
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Telefóno" formControlName="phone" />
+        <div class="col-sm-4">
+          <small *ngIf="errorHandling('phone', 'required')" class="text-danger">
+            El número telefónico es requerido
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Dirección" formControlName="address" />
+        <div class="col-sm-4">
+          <small *ngIf="errorHandling('address', 'required')" class="text-danger">
+            La dirección es requerido
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label id="rol" for="roles">Rol</label>
+        <select class="form-control" formControlName="rol_id">
+          <option id="roles" *ngFor="let rol of roles" [value]="rol.id">
+            {{rol.description}}
+          </option>
+        </select>
+        <div class="col-sm-4">
+          <small *ngIf="errorHandling('rol_id', 'required')" class="text-danger">
+            El rol es requerido
+          </small>
+        </div>
+      </div>
+
+      <div class="btn-group" role="group">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="reset" (click)="onReset()" class="btn btn-secondary">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

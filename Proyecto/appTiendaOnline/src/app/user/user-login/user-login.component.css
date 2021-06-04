@@ -1,0 +1,19 @@
+.form-group {
+  margin: 2%;
+}
+
+.form-control {
+  width: 50%;
+  margin-left: 2%;
+}
+.row {
+  margin-left: 20%;
+  text-align: center;
+}
+
+.btn-group {
+  margin-bottom: 15%;
+}
+label {
+  color: white;
+}

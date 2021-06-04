@@ -1,0 +1,119 @@
+<div class="container">
+  <form [formGroup]="formCreate" (ngSubmit)="submitForm()" novalidate>
+    <div class="col-12" id="factura" >
+  <div class="row ">
+
+   <div class="col-md-6" id="topfact">
+    <img src="../../../assets/img/logo/logo.png" width="150" height="150" id="png" alt="png"/>
+
+    <div class="form-group row" id="topTitulo">
+    <h3 class="">Tienda Online SmartStore</h3>
+
+    <h4 class="col-sm-10" style="text-align: center;">Factura</h4>
+
+      <h5 class="col-sm-6">Fecha: {{ date | date: "dd/MM/yyyy" }}</h5>
+
+      <h5 class="col-sm-6">Hora: {{ date | date: "hh:mm" }}</h5>
+      </div>
+    </div>
+
+
+    </div>
+
+          <div class="row ">
+         <div class="col-md-6">
+        <div class="form-group row" style="padding-bottom: 3%;" *ngIf="order?.id">
+
+         <!-- <label class="col-sm-4 col-form-label" for="factId">Número de Factura </label>
+          <div class="col-sm-8">
+            <input type="text" id="smalldata" class="form-control" formControlName="factId" name="factId" readonly />
+          </div>-->
+           <br/> <br />
+          <label class="col-sm-4 col-form-label" for="orderId">Número de Orden </label>
+          <div class="col-sm-8">
+            <input type="text"  id="smalldata" class="form-control"  name="orderId" formControlName="orderId"  readonly />
+           </div>
+           <br /> <br />
+          <label class="col-sm-4 col-form-label" for="delivery">Tipo de Envio: </label>
+           <div class="col-sm-8">
+            <input type="text"  id="smalldata" class="form-control"  name="delivery" [value]="order.deliverytype.description" readonly />
+          </div>
+        </div>
+
+        <div class="col-mb-4" *ngIf="order?.id">
+          <table class="table table-sm table-hover">
+            <thead>
+              <tr class="bg-primary" style="color: white;">
+                <th scope="col">Cantidad</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detail of order.order_products">
+                <td>{{detail.quantity}}</td>
+                <td>{{detail.product.description}}</td>
+                <td>{{detail.price | currency:'CR'}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="col-mb-12" id="cost">
+            <ul id="list"><li>
+            <label >Costo de envio: {{order.sending_cost | currency:'CR'}}</label></li>
+            <li><label >Impuesto: {{order.IV | currency:'CR'}}</label></li>
+            <li ><label >Total: {{order.subtotal | currency:'CR'}}</label></li>
+            </ul>
+          </div>
+        </div>
+
+       </div>
+
+            <div class="col-md-6">
+
+              <div class="form-group row" *ngIf="order?.id">
+                <label class="col-sm-4 col-form-label" for="userId">Identificación del Cliente </label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control"  name="userId" formControlName="userId" readonly />
+                </div>
+
+                <label class="col-sm-4 col-form-label" for="nameUser">Nombre del Cliente </label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control"  name="nameUser" [value]="order.user.name" readonly/>
+                </div>
+                  <br /> <br />
+                <label class="col-sm-4 col-form-label" for="address">Dirección </label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="address" [value]="order.user.address"  readonly />
+                </div>
+
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="driver">Personal de Entrega: </label>
+                <select class="form-control" id="combo" formControlName="driver">
+                  <option *ngFor="let driv of driverlist" [value]="driv.id">
+                    {{driv.name}}
+                  </option>
+                </select>
+                <div class="col-sm-4">
+                  <small *ngIf="errorHandling('driver', 'required')" class="text-danger">
+                  Es requerido seleccionar un personal de entrega
+                  </small>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-10 " id="boton">
+              <div class="btn-group"  id="boton" role="group">
+                <button type="submit"  id="boton" class="btn btn-info">Aceptar</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+   </form>
+</div>

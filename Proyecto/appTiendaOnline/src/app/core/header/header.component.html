@@ -1,0 +1,252 @@
+<!--<nav class="navbar navbar-expand-lg navbar-Custom">
+  <div class="container navbar-Custom">
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active"
+      ><img
+        id="logo"
+        class="img-fluid rounded mb-4 mb-lg-0"
+        src="../../../assets/img/logo/logo.png"
+        alt=""
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar-Custom"
+      aria-controls="navbar-Custom"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-Custom">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/product" routerLinkActive="active"
+            >Productos</a
+          >
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Vendedor
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/order']" routerLinkActive="active">
+              Ordenes</a>
+            <a class="dropdown-item" [routerLink]="['/driver']" routerLinkActive="active">
+              Personal de entregas</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Mantenimientos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a
+              class="dropdown-item"
+              [routerLink]="['/product/all']"
+              routerLinkActive="active"
+            >
+              Productos</a
+            >
+            <a class="dropdown-item" [routerLink]="['/driver/all']" routerLinkActive="active">
+              Personal de entregas</a>
+            <a class="dropdown-item" [routerLink]="['/order/all']" routerLinkActive="active">
+                  Ordenes</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home/aboutus"
+            routerLinkActive="active"
+            >Acerca de</a
+          >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li
+          class="nav-item dropdown"
+          ngbDropdown
+          placement="bottom-right"
+          display="dynamic"
+        >
+          <a
+            class="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span>
+              <i class="fas fa-user"></i>
+              <i *ngIf="isAutenticated"> {{ currentUser.user.email }}</i>
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-item" *ngIf="isAutenticated">
+              <div class="form-group">{{ currentUser.user.name }}</div>
+              <div class="form-group">{{ currentUser.user.email }}</div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              [routerLink]="['usuario/login']"
+              *ngIf="!isAutenticated"
+              ><i class="fas fa-user"></i> Login</a
+            >
+            <a
+              *ngIf="!isAutenticated"
+              class="dropdown-item"
+              [routerLink]="['usuario/registrar']"
+              >Registrar</a
+            >
+            <a class="dropdown-item" (click)="logout()" *ngIf="isAutenticated"
+              ><i class="fas fa-sign-out-alt"></i> Logout</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>-->
+<nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+  <a class="navbar-brand" href="#">
+    <img
+      src="../../../assets/img/logo/logo.png"
+      width="70"
+      height="70"
+      alt="png"
+      routerLink="/"
+      routerLinkActive="active"
+    />
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="/product"
+          routerLink="/product"
+          routerLinkActive="active"
+          >Productos</a
+        >
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Vendedor
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/bill">Facturas</a>
+          <a class="dropdown-item" href="/order">Ordenes</a>
+          <a class="dropdown-item" href="/driver">Personal de Entrega</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Mantenimientos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/product/all">Productos</a>
+          <a class="dropdown-item" href="/driver/all">Personal de Entrega</a>
+          <a class="dropdown-item" href="/order/all">Ordenes</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/home/aboutus">Acerca de</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav navbar-right" id="userul">
+        <li class="nav-item dropdown" >
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="dropdownMenuLink"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span>
+            <i class="fas fa-user" style="margin-right: 10px"></i>
+            <i *ngIf="isAutenticated"> {{ currentUser.user.name }}</i>
+          </span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item" *ngIf="isAutenticated" id="userdata">
+
+            <div class="form-group"><img src="../../../assets/img/icons/message.png" style="margin-right: 10px"/>{{ currentUser.user.email }}</div>
+          </div>
+          <a class="dropdown-item" href="usuario/login" *ngIf="!isAutenticated"
+            ><i class="fas fa-user"></i> Login</a
+          >
+          <a
+            *ngIf="!isAutenticated"
+            class="dropdown-item"
+            href="usuario/registrar"
+            >Registrar</a
+          >
+          <a
+            class="dropdown-item"
+            href="#"
+            (click)="logout()"
+            *ngIf="isAutenticated"
+            ><i class="fas fa-sign-out-alt"></i> Logout</a
+          >
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/order/add" routerLinkActive="active" class="nav-link"><i
+            class="fas fa-shopping-cart"></i> <span class="badge badge-light">{{qtyItems}}</span> </a>
+      </li>
+    </ul>
+    <!--
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+  </div>
+</nav>

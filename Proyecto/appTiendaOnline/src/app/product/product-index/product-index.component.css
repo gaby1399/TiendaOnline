@@ -1,0 +1,14 @@
+a {
+  background-color: #1e2699;
+   border: none;
+}
+#products{
+  background-color: #5b78cf6c;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+a:hover {
+  background-color: #228cbd;
+}

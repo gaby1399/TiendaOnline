@@ -1,0 +1,17 @@
+.container {
+  color: white;
+}
+button {
+  background-color: #228cbd;
+}
+#campos {
+  width: 30%;
+}
+
+.btn-group {
+  float: right;
+}
+
+#combo {
+  width: 40%;
+}

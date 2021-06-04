@@ -1,0 +1,36 @@
+#factura {
+  background-color: white;
+  color: black;
+  padding: 3%;
+}
+
+table.thead.tr {
+  color: white;
+  background-color: #228cbd;
+}
+
+#png {
+  float: left;
+}
+
+#topTitulo {
+  margin-top: 3%;
+}
+
+.container {
+  margin-top: 2%;
+}
+
+#smalldata {
+  width: 30%;
+}
+
+#boton {
+  float: right;
+}
+
+ul {
+  list-style-type: none;
+  padding-top: 3%;
+  padding-left: 0;
+}

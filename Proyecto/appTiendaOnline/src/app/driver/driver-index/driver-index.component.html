@@ -1,0 +1,30 @@
+<div class="row justify-content-center margen">
+  <div class="col-md-10">
+    <h4 class="mb-3">Lista de Personal de entregas</h4>
+   <br /><br />
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Cedula</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Transporte</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of datos">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.transport_id}}</td>
+          <td><p *ngIf="item.status==1">Activo</p>
+          <p *ngIf="item.status==0">Inactivo</p></td>
+          <td>
+          <a class="btn btn-info" [routerLink]="['/driver/',item.id]" routerLinkActive="active">Ver</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
